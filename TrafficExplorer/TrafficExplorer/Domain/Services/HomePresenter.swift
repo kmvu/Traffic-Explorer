@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+public protocol AnyHomeCoordinator {
+	func navigateToTrafficMap()
+}
+
+public protocol AnyHomePresenter {
+	func showMap()
+}
+
+public class HomePresenter: AnyHomePresenter {
+	private let coordinator: AnyHomeCoordinator
+	
+	public init(coordinator: AnyHomeCoordinator) {
+		self.coordinator = coordinator
+	}
+	
+	public func showMap() {
+		coordinator.navigateToTrafficMap()
+	}
+}

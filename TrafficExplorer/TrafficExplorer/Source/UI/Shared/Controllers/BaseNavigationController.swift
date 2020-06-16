@@ -6,4 +6,10 @@
 //  Copyright © 2020 com.khang.vu. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class BaseNavigationController: UINavigationController {
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		topViewController?.preferredStatusBarStyle ?? .default
+	}
+}

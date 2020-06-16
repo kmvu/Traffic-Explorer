@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  TrafficExplorer
 //
 //  Created by Khang Vu on 16/6/20.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class HomeViewController<Presenter: AnyHomePresenter>: UIViewController {
+	var presenter: Presenter!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		
+		
 	}
-
-
 }
 
