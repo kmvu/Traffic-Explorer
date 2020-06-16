@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+extension String {
+	func localized() -> String {
+		return NSLocalizedString(self, comment: self)
+	}
+	
+	func localizedFormat(_ args: CVarArg...) -> String {
+		return String(format: localized(), arguments: args)
+	}
+}
