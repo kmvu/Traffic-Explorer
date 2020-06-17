@@ -8,11 +8,10 @@
 
 import Foundation
 
-public protocol AnyMapCoordinator {
-	var api: AnyAPI! { get }
+public protocol AnyMapCoordinator: AnyPopupCoordinator {
+	var api: AnyAPI { get }
 	
 	func showPin()
-	func getTrafficData()
 }
 
 public protocol AnyMapView: AnyObject {
@@ -50,8 +49,13 @@ public class TrafficMapPresenter: AnyMapPresenter {
 		
 		coordinator.api.trafficData { [weak self] response, error in
 			guard let self = self else { return }
-			self.view?.isLoading = false
-			self.view?.mapModel = response
+			
+			if let error = error {
+				self.coordinator.presentError(error)
+			} else {
+				self.view?.isLoading = false
+				self.view?.mapModel = response
+			}
 		}
 	}
 	

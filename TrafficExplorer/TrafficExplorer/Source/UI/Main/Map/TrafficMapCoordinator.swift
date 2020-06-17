@@ -9,9 +9,10 @@
 import UIKit
 
 final class TrafficMapCoordinator: AnyMapCoordinator {
-	var api: AnyAPI!
 	
 	private let navigationController: UINavigationController
+	
+	var api: AnyAPI { API(apiHost: Constants.baseURL, session: URLSession.shared) }
 	
 	init(navigationController: UINavigationController) {
 		self.navigationController = navigationController
@@ -30,5 +31,9 @@ final class TrafficMapCoordinator: AnyMapCoordinator {
 	
 	func getTrafficData() {
 		
+	}
+	
+	func presentPopup(_ popup: Popup) {
+		navigationController.presentPopup(popup)
 	}
 }

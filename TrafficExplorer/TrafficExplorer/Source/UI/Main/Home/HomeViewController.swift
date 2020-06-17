@@ -9,6 +9,7 @@
 import UIKit
 
 class HomeViewController<Presenter: AnyHomePresenter>: UIViewController, AnyHomeView {
+	var isNavigatingToMap: Bool = false
 	var presenter: Presenter!
 	
 	override func viewDidLoad() {

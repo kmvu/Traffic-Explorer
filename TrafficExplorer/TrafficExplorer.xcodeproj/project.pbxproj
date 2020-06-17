@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D77F7268249A090700E64D86 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F7267249A090700E64D86 /* Popup.swift */; };
+		D77F726A249A3C5A00E64D86 /* UIViewController+Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F7269249A3C5A00E64D86 /* UIViewController+Popup.swift */; };
 		D78D37262499C631002BF2AE /* TrafficMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78D37252499C631002BF2AE /* TrafficMapViewController.swift */; };
 		D7CE58762498D475005A9F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58752498D475005A9F17 /* AppDelegate.swift */; };
 		D7CE58782498D475005A9F17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58772498D475005A9F17 /* SceneDelegate.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D77F7267249A090700E64D86 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		D77F7269249A3C5A00E64D86 /* UIViewController+Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Popup.swift"; sourceTree = "<group>"; };
 		D78D37252499C631002BF2AE /* TrafficMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficMapViewController.swift; sourceTree = "<group>"; };
 		D7CE58722498D475005A9F17 /* TrafficExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CE58752498D475005A9F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D77F7266249A08ED00E64D86 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				D77F7267249A090700E64D86 /* Popup.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		D78D37272499CE87002BF2AE /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 		D7CE58982498D747005A9F17 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D77F7266249A08ED00E64D86 /* Errors */,
 				D7CE58AA2498E3CC005A9F17 /* Services */,
 			);
 			path = Domain;
@@ -170,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D7CE58A82498DAAF005A9F17 /* String+extension.swift */,
+				D77F7269249A3C5A00E64D86 /* UIViewController+Popup.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +395,7 @@
 				D7CE58C524990BC1005A9F17 /* MapAPI.swift in Sources */,
 				D7CE58C82499115C005A9F17 /* API.swift in Sources */,
 				D78D37262499C631002BF2AE /* TrafficMapViewController.swift in Sources */,
+				D77F7268249A090700E64D86 /* Popup.swift in Sources */,
 				D7CE587A2498D475005A9F17 /* HomeViewController.swift in Sources */,
 				D7CE58A92498DAAF005A9F17 /* String+extension.swift in Sources */,
 				D7CE58B82498EE0C005A9F17 /* AnyAPI.swift in Sources */,
@@ -391,6 +406,7 @@
 				D7CE58B42498EAB6005A9F17 /* TrafficResponse.swift in Sources */,
 				D7CE58782498D475005A9F17 /* SceneDelegate.swift in Sources */,
 				D7CE58AE2498E5BC005A9F17 /* TrafficMapCoordinator.swift in Sources */,
+				D77F726A249A3C5A00E64D86 /* UIViewController+Popup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

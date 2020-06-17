@@ -13,15 +13,13 @@ import Combine
 
 public extension AnyAPI {
 	func trafficData(completion: @escaping (TrafficResponse?, Error?) -> Void) {
-		guard let request = URLComponents(url: "".url!,
-                                          resolvingAgainstBaseURL: true)?
-			.request(method: .POST) else { return }
+		guard let request = getURLComponents().request(method: .POST) else { return }
 		
-		URLSession.shared.dataTask(with: request) { data, response, error in
+		session.dataTask(with: request) { data, response, error in
 			if let error = error {
 				completion(nil, error)
 			} else if let data = data,
-				let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode {
+				let response = response as? HTTPURLResponse, response.isValidStatusCode {
 				DispatchQueue.main.async {
 					do {
 						let trafficResponse = try JSONDecoder().decode(TrafficResponse.self, from: data)
