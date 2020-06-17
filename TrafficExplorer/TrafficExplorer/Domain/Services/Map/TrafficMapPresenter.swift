@@ -26,11 +26,11 @@ public protocol AnyMapPresenter {
 	func displayPinPopup()
 }
 
-public class TrafficMapPresenter: AnyMapPresenter {
-	private let coordinator: AnyMapCoordinator
+public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresenter {
+	private let coordinator: Coordinator
 	private weak var view: AnyMapView?
 	
-	public init(coordinator: AnyMapCoordinator) {
+	public init(coordinator: Coordinator) {
 		self.coordinator = coordinator
 	}
 	

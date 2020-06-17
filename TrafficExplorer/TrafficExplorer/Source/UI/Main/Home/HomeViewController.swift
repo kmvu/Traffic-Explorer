@@ -14,6 +14,8 @@ class HomeViewController<Presenter: AnyHomePresenter>: UIViewController, AnyHome
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		navigationItem.title = "Home".localized()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

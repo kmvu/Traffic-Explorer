@@ -23,11 +23,11 @@ public protocol AnyHomePresenter {
 	func showMap()
 }
 
-public class HomePresenter: AnyHomePresenter {
+public class HomePresenter<Coordinator: AnyHomeCoordinator>: AnyHomePresenter {
 	private var view: AnyHomeView?
-	private let coordinator: AnyHomeCoordinator
+	private let coordinator: Coordinator
 	
-	public init(coordinator: AnyHomeCoordinator) {
+	public init(coordinator: Coordinator) {
 		self.coordinator = coordinator
 	}
 	
