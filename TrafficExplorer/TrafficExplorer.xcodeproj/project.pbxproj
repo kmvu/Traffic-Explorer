@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D78D37262499C631002BF2AE /* TrafficMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78D37252499C631002BF2AE /* TrafficMapViewController.swift */; };
 		D7CE58762498D475005A9F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58752498D475005A9F17 /* AppDelegate.swift */; };
 		D7CE58782498D475005A9F17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58772498D475005A9F17 /* SceneDelegate.swift */; };
-		D7CE587A2498D475005A9F17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58792498D475005A9F17 /* ViewController.swift */; };
+		D7CE587A2498D475005A9F17 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58792498D475005A9F17 /* HomeViewController.swift */; };
 		D7CE587D2498D475005A9F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CE587B2498D475005A9F17 /* Main.storyboard */; };
 		D7CE587F2498D476005A9F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CE587E2498D476005A9F17 /* Assets.xcassets */; };
 		D7CE58822498D476005A9F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CE58802498D476005A9F17 /* LaunchScreen.storyboard */; };
 		D7CE588D2498D476005A9F17 /* TrafficExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE588C2498D476005A9F17 /* TrafficExplorerTests.swift */; };
+		D7CE58A52498D97B005A9F17 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58A42498D97B005A9F17 /* BaseNavigationController.swift */; };
+		D7CE58A72498D9E2005A9F17 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58A62498D9E2005A9F17 /* HomeCoordinator.swift */; };
+		D7CE58A92498DAAF005A9F17 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58A82498DAAF005A9F17 /* String+extension.swift */; };
+		D7CE58AC2498E3DD005A9F17 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58AB2498E3DD005A9F17 /* HomePresenter.swift */; };
+		D7CE58AE2498E5BC005A9F17 /* TrafficMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58AD2498E5BC005A9F17 /* TrafficMapCoordinator.swift */; };
+		D7CE58B02498E5E5005A9F17 /* TrafficMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58AF2498E5E5005A9F17 /* TrafficMapPresenter.swift */; };
+		D7CE58B42498EAB6005A9F17 /* TrafficResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58B32498EAB6005A9F17 /* TrafficResponse.swift */; };
+		D7CE58B62498EAEC005A9F17 /* CameraResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58B52498EAEC005A9F17 /* CameraResponse.swift */; };
+		D7CE58B82498EE0C005A9F17 /* AnyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58B72498EE0C005A9F17 /* AnyAPI.swift */; };
+		D7CE58C12498FCC3005A9F17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58C02498FCC3005A9F17 /* Constants.swift */; };
+		D7CE58C524990BC1005A9F17 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58C424990BC1005A9F17 /* MapAPI.swift */; };
+		D7CE58C82499115C005A9F17 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58C72499115C005A9F17 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,10 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D78D37252499C631002BF2AE /* TrafficMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficMapViewController.swift; sourceTree = "<group>"; };
 		D7CE58722498D475005A9F17 /* TrafficExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CE58752498D475005A9F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7CE58772498D475005A9F17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7CE58792498D475005A9F17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D7CE58792498D475005A9F17 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D7CE587C2498D475005A9F17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7CE587E2498D476005A9F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7CE58812498D476005A9F17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +52,18 @@
 		D7CE58882498D476005A9F17 /* TrafficExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafficExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7CE588C2498D476005A9F17 /* TrafficExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficExplorerTests.swift; sourceTree = "<group>"; };
 		D7CE588E2498D476005A9F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7CE58A42498D97B005A9F17 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		D7CE58A62498D9E2005A9F17 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		D7CE58A82498DAAF005A9F17 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		D7CE58AB2498E3DD005A9F17 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		D7CE58AD2498E5BC005A9F17 /* TrafficMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficMapCoordinator.swift; sourceTree = "<group>"; };
+		D7CE58AF2498E5E5005A9F17 /* TrafficMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficMapPresenter.swift; sourceTree = "<group>"; };
+		D7CE58B32498EAB6005A9F17 /* TrafficResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficResponse.swift; sourceTree = "<group>"; };
+		D7CE58B52498EAEC005A9F17 /* CameraResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraResponse.swift; sourceTree = "<group>"; };
+		D7CE58B72498EE0C005A9F17 /* AnyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAPI.swift; sourceTree = "<group>"; };
+		D7CE58C02498FCC3005A9F17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D7CE58C424990BC1005A9F17 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
+		D7CE58C72499115C005A9F17 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D78D37272499CE87002BF2AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58AB2498E3DD005A9F17 /* HomePresenter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D78D37282499CE91002BF2AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58A62498D9E2005A9F17 /* HomeCoordinator.swift */,
+				D7CE58792498D475005A9F17 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		D7CE58692498D474005A9F17 = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +122,10 @@
 		D7CE58742498D475005A9F17 /* TrafficExplorer */ = {
 			isa = PBXGroup;
 			children = (
-				D7CE58752498D475005A9F17 /* AppDelegate.swift */,
-				D7CE58772498D475005A9F17 /* SceneDelegate.swift */,
-				D7CE58792498D475005A9F17 /* ViewController.swift */,
-				D7CE587B2498D475005A9F17 /* Main.storyboard */,
-				D7CE587E2498D476005A9F17 /* Assets.xcassets */,
-				D7CE58802498D476005A9F17 /* LaunchScreen.storyboard */,
 				D7CE58832498D476005A9F17 /* Info.plist */,
+				D7CE587E2498D476005A9F17 /* Assets.xcassets */,
+				D7CE58982498D747005A9F17 /* Domain */,
+				D7CE58992498D755005A9F17 /* Source */,
 			);
 			path = TrafficExplorer;
 			sourceTree = "<group>";
@@ -97,6 +137,141 @@
 				D7CE588E2498D476005A9F17 /* Info.plist */,
 			);
 			path = TrafficExplorerTests;
+			sourceTree = "<group>";
+		};
+		D7CE58982498D747005A9F17 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58AA2498E3CC005A9F17 /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		D7CE58992498D755005A9F17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE589D2498D789005A9F17 /* Resources */,
+				D7CE589E2498D7C1005A9F17 /* Infrastructure */,
+				D7CE58A22498D8D4005A9F17 /* UI */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D7CE589A2498D75C005A9F17 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D78D37282499CE91002BF2AE /* Home */,
+				D7CE589F2498D855005A9F17 /* Map */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D7CE589B2498D763005A9F17 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58A82498DAAF005A9F17 /* String+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D7CE589C2498D76F005A9F17 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58C02498FCC3005A9F17 /* Constants.swift */,
+				D7CE58A32498D963005A9F17 /* Controllers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D7CE589D2498D789005A9F17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58802498D476005A9F17 /* LaunchScreen.storyboard */,
+				D7CE587B2498D475005A9F17 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D7CE589E2498D7C1005A9F17 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58752498D475005A9F17 /* AppDelegate.swift */,
+				D7CE58772498D475005A9F17 /* SceneDelegate.swift */,
+				D7CE58C72499115C005A9F17 /* API.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		D7CE589F2498D855005A9F17 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58AD2498E5BC005A9F17 /* TrafficMapCoordinator.swift */,
+				D78D37252499C631002BF2AE /* TrafficMapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		D7CE58A22498D8D4005A9F17 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE589B2498D763005A9F17 /* Extensions */,
+				D7CE589A2498D75C005A9F17 /* Main */,
+				D7CE589C2498D76F005A9F17 /* Shared */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D7CE58A32498D963005A9F17 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58A42498D97B005A9F17 /* BaseNavigationController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7CE58AA2498E3CC005A9F17 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58B72498EE0C005A9F17 /* AnyAPI.swift */,
+				D78D37272499CE87002BF2AE /* Home */,
+				D7CE58B12498E5E8005A9F17 /* Map */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D7CE58B12498E5E8005A9F17 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58AF2498E5E5005A9F17 /* TrafficMapPresenter.swift */,
+				D7CE58C324990BB6005A9F17 /* API */,
+				D7CE58B22498EA95005A9F17 /* Entities */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		D7CE58B22498EA95005A9F17 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58B92498EF71005A9F17 /* Responses */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		D7CE58B92498EF71005A9F17 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58B32498EAB6005A9F17 /* TrafficResponse.swift */,
+				D7CE58B52498EAEC005A9F17 /* CameraResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		D7CE58C324990BB6005A9F17 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D7CE58C424990BC1005A9F17 /* MapAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +375,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7CE587A2498D475005A9F17 /* ViewController.swift in Sources */,
+				D7CE58AC2498E3DD005A9F17 /* HomePresenter.swift in Sources */,
+				D7CE58A52498D97B005A9F17 /* BaseNavigationController.swift in Sources */,
+				D7CE58B02498E5E5005A9F17 /* TrafficMapPresenter.swift in Sources */,
+				D7CE58C524990BC1005A9F17 /* MapAPI.swift in Sources */,
+				D7CE58C82499115C005A9F17 /* API.swift in Sources */,
+				D78D37262499C631002BF2AE /* TrafficMapViewController.swift in Sources */,
+				D7CE587A2498D475005A9F17 /* HomeViewController.swift in Sources */,
+				D7CE58A92498DAAF005A9F17 /* String+extension.swift in Sources */,
+				D7CE58B82498EE0C005A9F17 /* AnyAPI.swift in Sources */,
+				D7CE58B62498EAEC005A9F17 /* CameraResponse.swift in Sources */,
+				D7CE58C12498FCC3005A9F17 /* Constants.swift in Sources */,
+				D7CE58A72498D9E2005A9F17 /* HomeCoordinator.swift in Sources */,
 				D7CE58762498D475005A9F17 /* AppDelegate.swift in Sources */,
+				D7CE58B42498EAB6005A9F17 /* TrafficResponse.swift in Sources */,
 				D7CE58782498D475005A9F17 /* SceneDelegate.swift in Sources */,
+				D7CE58AE2498E5BC005A9F17 /* TrafficMapCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
