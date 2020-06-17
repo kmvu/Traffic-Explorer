@@ -7,14 +7,18 @@
 //
 
 import Foundation
+import Combine
 
 public protocol AnyMapCoordinator {
+	var api: AnyAPI! { get }
+	
 	func showPin()
+	func getTrafficData()
 }
 
 public protocol AnyMapView: AnyObject {
 	var isLoading: Bool { get set }
-	var mapModel: TrafficResponse { get set }
+	var mapModel: TrafficResponse? { get set }
 }
 
 public protocol AnyMapPresenter {
@@ -27,6 +31,7 @@ public protocol AnyMapPresenter {
 public class TrafficMapPresenter: AnyMapPresenter {
 	private let coordinator: AnyMapCoordinator
 	private weak var view: AnyMapView?
+	private var bag = Set<AnyCancellable>()
 	
 	public init(coordinator: AnyMapCoordinator) {
 		self.coordinator = coordinator
@@ -39,13 +44,21 @@ public class TrafficMapPresenter: AnyMapPresenter {
 	}
 	
 	public func detach() {
-		
+		self.view = nil
 	}
 	
 	private func fetchTrafficData() {
 		view?.isLoading = true
 		
-		coordinator.getTrafficData()
+		
+//
+//		coordinator.api.trafficData()
+//			.handleEvents(receiveOutput: { response in
+//				debugPrint(response)
+//			}, receiveCompletion: { [weak self] _ in
+//				self?.view?.isLoading = false
+//			})
+//			.eraseToAnyPublisher()
 	}
 	
 	public func displayPinPopup() {

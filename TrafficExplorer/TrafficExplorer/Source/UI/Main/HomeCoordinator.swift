@@ -13,10 +13,10 @@ final class HomeCoordinator: BaseNavigationController, AnyHomeCoordinator {
 		let viewController = HomeViewController<HomePresenter>()
 		viewController.presenter = HomePresenter(coordinator: self)
 		viewController.navigationItem.title = "Home".localized()
-		pushViewController(viewController, animated: true)
+		pushViewController(viewController, animated: false) // Home screen, no need to animate
 	}
 	
 	func navigateToTrafficMap() {
-		
+		TrafficMapCoordinator(navigationController: self).start()
 	}
 }
