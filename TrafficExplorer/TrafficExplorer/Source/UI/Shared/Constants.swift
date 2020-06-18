@@ -11,10 +11,6 @@ import Foundation
 struct Constants {
 	static var baseURL = URL(string: "https://api.data.gov.sg")!
 	
-    enum Key: String {
-        case accessToken = "oauth_token"
-    }
-        
     enum HTTPMethod: String {
         case GET, POST
     }

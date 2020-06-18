@@ -29,10 +29,10 @@ public protocol AnyPopupCoordinator {
 }
 
 extension AnyPopupCoordinator {
-	public func presentError(_ error: Error) {
+	public func presentError(_ error: Error?, _ message: String = "") {
 		switch error {
 			default:
-				presentPopup(.error(error, actions:[OKAction()]))
+				presentPopup(.error(error, message, actions:[OKAction()]))
 		}
 	}
 }
@@ -44,9 +44,9 @@ public struct Popup {
 }
 
 extension Popup {
-	static func error(_ anyError: Error, actions: [AnyAction]) -> Popup {
+	static func error(_ anyError: Error?, _ message: String, actions: [AnyAction]) -> Popup {
 		Popup(title: "Error".localized(),
-			  message: anyError.localizedDescription,
+			  message: anyError?.localizedDescription ?? message,
 			  actions: actions)
 	}
 }

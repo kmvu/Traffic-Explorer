@@ -14,7 +14,7 @@ class MockAPI: AnyAPI {
 	var session: URLSession = .init(configuration: .default)
 	var spyURLComponentsCount: Int = 0
 	
-	func getURLComponents() -> URLComponents {
+	func getURLComponents(path: String) -> URLComponents? {
 		spyURLComponentsCount += 1
 		return URLComponents(url: apiHost, resolvingAgainstBaseURL: false)!
 	}
@@ -35,7 +35,7 @@ class MockMapCoordinator: AnyMapCoordinator {
 		didPopupPresent = true
 	}
 	
-	func showPin() {
+	func showPin(camera: Any) {
 		didShowPinIcon = true
 	}
 }

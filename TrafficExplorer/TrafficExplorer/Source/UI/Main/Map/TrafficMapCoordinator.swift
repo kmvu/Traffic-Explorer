@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
 final class TrafficMapCoordinator: AnyMapCoordinator {
-	
 	private let navigationController: UINavigationController
 	
 	var api: AnyAPI { API(apiHost: Constants.baseURL, session: URLSession.shared) }
@@ -26,12 +26,9 @@ final class TrafficMapCoordinator: AnyMapCoordinator {
 		navigationController.pushViewController(mapController, animated: true)
 	}
 	
-	func showPin() {
-		
-	}
-	
-	func getTrafficData() {
-		
+	func showPin(camera: Any) {
+		guard let camera = camera as? CameraResponse else { return }
+		PinDetailsCoordinator(navigationController: navigationController, camera: camera).start()
 	}
 	
 	func presentPopup(_ popup: Popup) {

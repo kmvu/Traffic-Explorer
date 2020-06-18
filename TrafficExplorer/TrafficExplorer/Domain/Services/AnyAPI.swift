@@ -17,9 +17,10 @@ public protocol AnyAPI {
 	
 	func getURLComponents(path: String) -> URLComponents?
 }
+
 public protocol AnyError: Error {}
 
 public enum APIError: AnyError {
-	case apiError(reason: String)
+	case apiError(code: Int, message: String)
 	case unkown
 }

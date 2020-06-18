@@ -6,6 +6,8 @@
 //  Copyright © 2020 com.khang.vu. All rights reserved.
 //
 
+import Foundation
+
 public struct CameraLocation: Decodable {
 	public let latitude: Double
 	public let longitude: Double
@@ -17,7 +19,7 @@ public struct ImageMetaData: Decodable {
 	public let md5: String
 }
 
-public struct CameraResponse: Decodable {
+public class CameraResponse: NSObject, Decodable {
 	public let timestamp: String
 	public let image: String
 	public let location: CameraLocation

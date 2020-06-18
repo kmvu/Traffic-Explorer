@@ -34,7 +34,7 @@ class MapPresenterTests: XCTestCase {
 		XCTAssertFalse(coordinator.didShowPinIcon)
 		
 		mapPresenter.attach(view: view)
-		mapPresenter.displayPinPopup()
+		mapPresenter.showDetails(camera: "")
 		
 		XCTAssertTrue(coordinator.didShowPinIcon)
 	}

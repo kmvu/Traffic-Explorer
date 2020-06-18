@@ -6,12 +6,12 @@
 //  Copyright © 2020 com.khang.vu. All rights reserved.
 //
 
-import Foundation
-
-public protocol AnyMapCoordinator: AnyPopupCoordinator {
+public protocol AnyAPICoodinator {
 	var api: AnyAPI { get }
-	
-	func showPin()
+}
+
+public protocol AnyMapCoordinator: AnyAPICoodinator, AnyPopupCoordinator {
+	func showPin(camera: Any)
 }
 
 public protocol AnyMapView: AnyObject {
@@ -23,7 +23,8 @@ public protocol AnyMapPresenter {
 	func attach<View: AnyMapView>(view: View)
 	func detach()
 	
-	func displayPinPopup()
+	func showDetails(camera: Any)
+	func presentError(error: Error?, message: String)
 }
 
 public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresenter {
@@ -49,17 +50,21 @@ public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresente
 		
 		coordinator.api.trafficData { [weak self] response, error in
 			guard let self = self else { return }
+			self.view?.isLoading = false
 			
 			if let error = error {
 				self.coordinator.presentError(error)
 			} else {
-				self.view?.isLoading = false
 				self.view?.mapModel = response
 			}
 		}
 	}
 	
-	public func displayPinPopup() {
-		coordinator.showPin()
+	public func showDetails(camera: Any) {
+		coordinator.showPin(camera: camera)
+	}
+	
+	public func presentError(error: Error? = nil, message: String = "") {
+		self.coordinator.presentError(error, message)
 	}
 }

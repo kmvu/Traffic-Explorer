@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D73FABEC249BAC6F004F79A6 /* PinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FABEB249BAC6F004F79A6 /* PinDetailsViewController.swift */; };
+		D73FABEE249BAC7D004F79A6 /* PinDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FABED249BAC7D004F79A6 /* PinDetailsCoordinator.swift */; };
+		D73FABF0249BB7BD004F79A6 /* PinDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73FABEF249BB7BD004F79A6 /* PinDetailsPresenter.swift */; };
 		D77F7268249A090700E64D86 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F7267249A090700E64D86 /* Popup.swift */; };
 		D77F726A249A3C5A00E64D86 /* UIViewController+Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F7269249A3C5A00E64D86 /* UIViewController+Popup.swift */; };
 		D77F726D249A414C00E64D86 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F726C249A414C00E64D86 /* HomePresenterTests.swift */; };
@@ -20,7 +23,6 @@
 		D7CE587D2498D475005A9F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CE587B2498D475005A9F17 /* Main.storyboard */; };
 		D7CE587F2498D476005A9F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7CE587E2498D476005A9F17 /* Assets.xcassets */; };
 		D7CE58822498D476005A9F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7CE58802498D476005A9F17 /* LaunchScreen.storyboard */; };
-		D7CE588D2498D476005A9F17 /* TrafficExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE588C2498D476005A9F17 /* TrafficExplorerTests.swift */; };
 		D7CE58A52498D97B005A9F17 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58A42498D97B005A9F17 /* BaseNavigationController.swift */; };
 		D7CE58A72498D9E2005A9F17 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58A62498D9E2005A9F17 /* HomeCoordinator.swift */; };
 		D7CE58A92498DAAF005A9F17 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CE58A82498DAAF005A9F17 /* String+extension.swift */; };
@@ -46,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D73FABEB249BAC6F004F79A6 /* PinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsViewController.swift; sourceTree = "<group>"; };
+		D73FABED249BAC7D004F79A6 /* PinDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsCoordinator.swift; sourceTree = "<group>"; };
+		D73FABEF249BB7BD004F79A6 /* PinDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsPresenter.swift; sourceTree = "<group>"; };
 		D77F7267249A090700E64D86 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		D77F7269249A3C5A00E64D86 /* UIViewController+Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Popup.swift"; sourceTree = "<group>"; };
 		D77F726C249A414C00E64D86 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
@@ -62,7 +67,6 @@
 		D7CE58812498D476005A9F17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7CE58832498D476005A9F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7CE58882498D476005A9F17 /* TrafficExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafficExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7CE588C2498D476005A9F17 /* TrafficExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficExplorerTests.swift; sourceTree = "<group>"; };
 		D7CE588E2498D476005A9F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7CE58A42498D97B005A9F17 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		D7CE58A62498D9E2005A9F17 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D73FABEA249BAC53004F79A6 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				D73FABED249BAC7D004F79A6 /* PinDetailsCoordinator.swift */,
+				D73FABEB249BAC6F004F79A6 /* PinDetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		D77F7266249A08ED00E64D86 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				D7CE588E2498D476005A9F17 /* Info.plist */,
-				D7CE588C2498D476005A9F17 /* TrafficExplorerTests.swift */,
 				D77F726B249A413600E64D86 /* DomainTests */,
 			);
 			path = TrafficExplorerTests;
@@ -265,6 +277,7 @@
 			children = (
 				D7CE58AD2498E5BC005A9F17 /* TrafficMapCoordinator.swift */,
 				D78D37252499C631002BF2AE /* TrafficMapViewController.swift */,
+				D73FABEA249BAC53004F79A6 /* Details */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -300,6 +313,7 @@
 		D7CE58B12498E5E8005A9F17 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				D73FABEF249BB7BD004F79A6 /* PinDetailsPresenter.swift */,
 				D7CE58AF2498E5E5005A9F17 /* TrafficMapPresenter.swift */,
 				D7CE58C324990BB6005A9F17 /* API */,
 				D7CE58B22498EA95005A9F17 /* Entities */,
@@ -438,11 +452,14 @@
 				D7CE58B02498E5E5005A9F17 /* TrafficMapPresenter.swift in Sources */,
 				D7CE58C524990BC1005A9F17 /* MapAPI.swift in Sources */,
 				D7CE58C82499115C005A9F17 /* API.swift in Sources */,
+				D73FABF0249BB7BD004F79A6 /* PinDetailsPresenter.swift in Sources */,
 				D78D37262499C631002BF2AE /* TrafficMapViewController.swift in Sources */,
 				D77F7268249A090700E64D86 /* Popup.swift in Sources */,
 				D7CE587A2498D475005A9F17 /* HomeViewController.swift in Sources */,
 				D7CE58A92498DAAF005A9F17 /* String+extension.swift in Sources */,
+				D73FABEC249BAC6F004F79A6 /* PinDetailsViewController.swift in Sources */,
 				D7CE58B82498EE0C005A9F17 /* AnyAPI.swift in Sources */,
+				D73FABEE249BAC7D004F79A6 /* PinDetailsCoordinator.swift in Sources */,
 				D7CE58B62498EAEC005A9F17 /* CameraResponse.swift in Sources */,
 				D7CE58C12498FCC3005A9F17 /* Constants.swift in Sources */,
 				D7CE58A72498D9E2005A9F17 /* HomeCoordinator.swift in Sources */,
@@ -458,7 +475,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7CE588D2498D476005A9F17 /* TrafficExplorerTests.swift in Sources */,
 				D77F7271249A41EF00E64D86 /* MockHome.swift in Sources */,
 				D77F726D249A414C00E64D86 /* HomePresenterTests.swift in Sources */,
 				D77F7274249A461C00E64D86 /* MapPresenterTests.swift in Sources */,
@@ -615,8 +631,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LDEY34FNMQ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TrafficExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -635,8 +651,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LDEY34FNMQ;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TrafficExplorer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -27,11 +27,4 @@ public extension HTTPURLResponse {
 	var isValidStatusCode: Bool {
 		(200..<300) ~= statusCode
 	}
-	
-	var isValidContentType: Bool {
-		guard let contentType = allHeaderFields["Content-Type"] as? String else {
-			return false
-		}
-		return ["application/json"].contains { contentType.contains($0) }
-	}
 }
