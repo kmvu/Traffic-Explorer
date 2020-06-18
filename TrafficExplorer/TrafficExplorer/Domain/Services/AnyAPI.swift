@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import Combine
+
+// MARK: - APIs foundation
+
+public protocol AnyAPI {
+	var apiHost: URL { get }
+	var session: URLSession { get }
+	
+	func getURLComponents(path: String) -> URLComponents?
+}
+
+public protocol AnyError: Error {}
+
+public enum APIError: AnyError {
+	case apiError(code: Int, message: String)
+	case unkown
+}

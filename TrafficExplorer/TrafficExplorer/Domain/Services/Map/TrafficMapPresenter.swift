@@ -6,14 +6,12 @@
 //  Copyright © 2020 com.khang.vu. All rights reserved.
 //
 
-import Foundation
-import Combine
+public protocol AnyAPICoodinator {
+	var api: AnyAPI { get }
+}
 
-public protocol AnyMapCoordinator {
-	var api: AnyAPI! { get }
-	
-	func showPin()
-	func getTrafficData()
+public protocol AnyMapCoordinator: AnyAPICoodinator, AnyPopupCoordinator {
+	func showPin(camera: Any)
 }
 
 public protocol AnyMapView: AnyObject {
@@ -25,15 +23,15 @@ public protocol AnyMapPresenter {
 	func attach<View: AnyMapView>(view: View)
 	func detach()
 	
-	func displayPinPopup()
+	func showDetails(camera: Any)
+	func presentError(error: Error?, message: String)
 }
 
-public class TrafficMapPresenter: AnyMapPresenter {
-	private let coordinator: AnyMapCoordinator
+public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresenter {
+	private let coordinator: Coordinator
 	private weak var view: AnyMapView?
-	private var bag = Set<AnyCancellable>()
 	
-	public init(coordinator: AnyMapCoordinator) {
+	public init(coordinator: Coordinator) {
 		self.coordinator = coordinator
 	}
 	
@@ -50,18 +48,23 @@ public class TrafficMapPresenter: AnyMapPresenter {
 	private func fetchTrafficData() {
 		view?.isLoading = true
 		
-		
-//
-//		coordinator.api.trafficData()
-//			.handleEvents(receiveOutput: { response in
-//				debugPrint(response)
-//			}, receiveCompletion: { [weak self] _ in
-//				self?.view?.isLoading = false
-//			})
-//			.eraseToAnyPublisher()
+		coordinator.api.trafficData { [weak self] response, error in
+			guard let self = self else { return }
+			self.view?.isLoading = false
+			
+			if let error = error {
+				self.coordinator.presentError(error)
+			} else {
+				self.view?.mapModel = response
+			}
+		}
 	}
 	
-	public func displayPinPopup() {
-		coordinator.showPin()
+	public func showDetails(camera: Any) {
+		coordinator.showPin(camera: camera)
+	}
+	
+	public func presentError(error: Error? = nil, message: String = "") {
+		self.coordinator.presentError(error, message)
 	}
 }

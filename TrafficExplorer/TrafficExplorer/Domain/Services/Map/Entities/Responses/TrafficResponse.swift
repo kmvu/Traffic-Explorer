@@ -18,4 +18,9 @@ public struct APIInfo: Decodable {
 public struct TrafficResponse: Decodable {
 	public let items: [TrafficResponseItem]
 	public let api_info: APIInfo
+	
+	public init(items: [TrafficResponseItem], info: APIInfo) {
+		self.items = items
+		self.api_info = info
+	}
 }
