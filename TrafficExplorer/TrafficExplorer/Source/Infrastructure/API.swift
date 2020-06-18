@@ -17,8 +17,9 @@ public class API: AnyAPI {
 		self.session = session
 	}
 	
-	public func getURLComponents() -> URLComponents {
-		URLComponents(url: apiHost, resolvingAgainstBaseURL: false)!
+	public func getURLComponents(path: String) -> URLComponents? {
+		guard let url = URL(string: "\(apiHost.absoluteString)\(path)") else { return nil }
+		return URLComponents(url: url, resolvingAgainstBaseURL: false)!
 	}
 }
 

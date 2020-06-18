@@ -13,9 +13,12 @@ import Combine
 
 public extension AnyAPI {
 	func trafficData(completion: @escaping (TrafficResponse?, Error?) -> Void) {
-		guard let request = getURLComponents().request(method: .POST) else { return }
+		guard let request = getURLComponents(path: "/v1/transport/traffic-images")?.request(method: .GET) else {
+			debugPrint("Error: Invalid URL path")
+			return
+		}
 		
-		session.dataTask(with: request) { data, response, error in
+		session.dataTask(with: request.url!) { data, response, error in
 			if let error = error {
 				completion(nil, error)
 			} else if let data = data,
@@ -29,11 +32,7 @@ public extension AnyAPI {
 					}
 				}
 			}
-		}
-		
-		// TODO: try this later
-//		let agent = Agent<TrafficResponse>()
-//		return agent.run(request)
+		}.resume()
 	}
 }
 

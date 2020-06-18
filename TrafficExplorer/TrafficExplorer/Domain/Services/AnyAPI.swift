@@ -15,32 +15,11 @@ public protocol AnyAPI {
 	var apiHost: URL { get }
 	var session: URLSession { get }
 	
-	func getURLComponents() -> URLComponents
+	func getURLComponents(path: String) -> URLComponents?
 }
 public protocol AnyError: Error {}
 
 public enum APIError: AnyError {
 	case apiError(reason: String)
 	case unkown
-}
-
-// MARK: Agents
-
-public protocol AnyAgent {
-	associatedtype T = Decodable
-	func run(_ request: URLRequest) -> AnyPublisher<T, Error>
-}
-
-public struct Agent<T: Decodable>: AnyAgent {
-	public func run(_ request: URLRequest) -> AnyPublisher<T, Error> {
-		URLSession.shared
-			.dataTaskPublisher(for: request)
-			.map { data, _ in data }
-			.handleEvents(receiveOutput: {
-				debugPrint(NSString(data: $0, encoding: String.Encoding.utf8.rawValue)!)
-			})
-			.decode(type: T.self, decoder: JSONDecoder())
-			.receive(on: DispatchQueue.main)
-			.eraseToAnyPublisher()
-	}
 }

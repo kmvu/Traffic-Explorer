@@ -22,6 +22,7 @@ final class TrafficMapCoordinator: AnyMapCoordinator {
 		let mapController = TrafficMapViewController<TrafficMapPresenter<TrafficMapCoordinator>>()
 		mapController.presenter = TrafficMapPresenter(coordinator: self)
 		mapController.navigationItem.title = "Map".localized()
+		
 		navigationController.pushViewController(mapController, animated: true)
 	}
 	

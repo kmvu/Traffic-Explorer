@@ -16,9 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 		
 		let viewController = HomeViewController<HomePresenter<HomeCoordinator>>()
-		viewController.presenter = HomePresenter(coordinator: HomeCoordinator())
-		
-		let navigationController = BaseNavigationController(rootViewController: viewController)
+		let navigationController = HomeCoordinator(rootViewController: viewController)
+		viewController.presenter = HomePresenter(coordinator: navigationController)
 		navigationController.navigationBar.isTranslucent = false
 		
 		let window = UIWindow(windowScene: windowScene)

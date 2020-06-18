@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-	static var baseURL = URL(string: "https://www.flickr.com")!
+	static var baseURL = URL(string: "https://api.data.gov.sg")!
 	
     enum Key: String {
         case accessToken = "oauth_token"
