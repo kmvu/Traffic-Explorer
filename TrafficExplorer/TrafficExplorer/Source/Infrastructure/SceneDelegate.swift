@@ -18,7 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		let viewController = HomeViewController<HomePresenter<HomeCoordinator>>()
 		let navigationController = HomeCoordinator(rootViewController: viewController)
 		viewController.presenter = HomePresenter(coordinator: navigationController)
-		navigationController.navigationBar.isTranslucent = false
 		
 		let window = UIWindow(windowScene: windowScene)
 		window.rootViewController = navigationController

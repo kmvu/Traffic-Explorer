@@ -34,7 +34,6 @@ AnyMapView, MKMapViewDelegate {
 			// , then we can have a scrollable list of dates to select from and display accordingly
 			// or just have previous/next buttons to navigate through each date from the map itself.
 			let cameras = response.items.first!.cameras
-
 			self.updateMapView(with: cameras)
 		}
 	}
@@ -42,6 +41,7 @@ AnyMapView, MKMapViewDelegate {
 	private lazy var mapView: MKMapView = {
 		let mapView = MKMapView()
 		mapView.translatesAutoresizingMaskIntoConstraints = false
+		mapView.delegate = self
 		return mapView
 	}()
 
@@ -56,7 +56,6 @@ AnyMapView, MKMapViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		mapView.delegate = self
 		[mapView, activityIndicator].forEach(view.addSubview)
 		
 		NSLayoutConstraint.activate([
@@ -68,7 +67,8 @@ AnyMapView, MKMapViewDelegate {
 		
 		// Fetching latets data every one minute, as per recommended by the Service themselves
 		presenter.attach(view: self) // Load API the first time, then another minute, and so on...
-		Timer.scheduledTimer(timeInterval: MapMetrics.oneMinute, target: self,
+		Timer.scheduledTimer(timeInterval: MapMetrics.oneMinute,
+							 target: self,
 							 selector: #selector(fetchLatestData),
 							 userInfo: nil, repeats: true)
 	}
@@ -78,18 +78,18 @@ AnyMapView, MKMapViewDelegate {
 		presenter.detach()
 	}
 	
+	@objc func fetchLatestData() {
+		presenter.fetchTrafficData()
+	}
+	
 	// MARK: - Map
 	
 	private func updateMapView(with cameras: [CameraResponse]) {
 		let singapore = CLLocation(latitude: 1.290270, longitude: 103.851959)
-		mapView.center(to: singapore)
+		self.mapView.center(to: singapore)
 		
 		// Add annotation(pin)s to mapView
 		cameras.forEach { camera in mapView.addAnnotation(camera) }
-	}
-	
-	@objc func fetchLatestData() {
-		presenter.attach(view: self)
 	}
 	
 	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -104,7 +104,8 @@ AnyMapView, MKMapViewDelegate {
 
 extension CameraResponse: MKAnnotation {
 	public var coordinate: CLLocationCoordinate2D {
-		CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+		CLLocationCoordinate2D(latitude: location.latitude,
+							   longitude: location.longitude)
 	}
 }
 

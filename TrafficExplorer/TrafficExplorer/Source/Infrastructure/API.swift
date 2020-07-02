@@ -18,13 +18,13 @@ public class API: AnyAPI {
 	}
 	
 	public func getURLComponents(path: String) -> URLComponents? {
-		guard let url = URL(string: "\(apiHost.absoluteString)\(path)") else { return nil }
-		return URLComponents(url: url, resolvingAgainstBaseURL: false)!
+		guard let url = URL(string: path, relativeTo: Constants.baseURL) else { return nil }
+		return URLComponents(url: url, resolvingAgainstBaseURL: true)
 	}
 }
 
 public extension HTTPURLResponse {
 	var isValidStatusCode: Bool {
-		(200..<300) ~= statusCode
+		return 200..<300 ~= statusCode
 	}
 }

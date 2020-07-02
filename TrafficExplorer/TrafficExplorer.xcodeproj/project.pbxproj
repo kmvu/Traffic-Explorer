@@ -316,7 +316,6 @@
 				D73FABEF249BB7BD004F79A6 /* PinDetailsPresenter.swift */,
 				D7CE58AF2498E5E5005A9F17 /* TrafficMapPresenter.swift */,
 				D7CE58C324990BB6005A9F17 /* API */,
-				D7CE58B22498EA95005A9F17 /* Entities */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -324,24 +323,17 @@
 		D7CE58B22498EA95005A9F17 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				D7CE58B92498EF71005A9F17 /* Responses */,
+				D7CE58B52498EAEC005A9F17 /* CameraResponse.swift */,
+				D7CE58B32498EAB6005A9F17 /* TrafficResponse.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		D7CE58B92498EF71005A9F17 /* Responses */ = {
-			isa = PBXGroup;
-			children = (
-				D7CE58B32498EAB6005A9F17 /* TrafficResponse.swift */,
-				D7CE58B52498EAEC005A9F17 /* CameraResponse.swift */,
-			);
-			path = Responses;
 			sourceTree = "<group>";
 		};
 		D7CE58C324990BB6005A9F17 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				D7CE58C424990BC1005A9F17 /* MapAPI.swift */,
+				D7CE58B22498EA95005A9F17 /* Entities */,
 			);
 			path = API;
 			sourceTree = "<group>";

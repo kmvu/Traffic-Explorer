@@ -11,6 +11,7 @@ public protocol AnyAPICoodinator {
 }
 
 public protocol AnyMapCoordinator: AnyAPICoodinator, AnyPopupCoordinator {
+	func dismiss()
 	func showPin(camera: Any)
 }
 
@@ -23,7 +24,9 @@ public protocol AnyMapPresenter {
 	func attach<View: AnyMapView>(view: View)
 	func detach()
 	
+	func fetchTrafficData()
 	func showDetails(camera: Any)
+	
 	func presentError(error: Error?, message: String)
 }
 
@@ -37,7 +40,6 @@ public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresente
 	
 	public func attach<View: AnyMapView>(view: View) {
 		self.view = view
-		
 		fetchTrafficData()
 	}
 	
@@ -45,7 +47,7 @@ public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresente
 		self.view = nil
 	}
 	
-	private func fetchTrafficData() {
+	public func fetchTrafficData() {
 		view?.isLoading = true
 		
 		coordinator.api.trafficData { [weak self] response, error in
@@ -53,7 +55,9 @@ public class TrafficMapPresenter<Coordinator: AnyMapCoordinator>: AnyMapPresente
 			self.view?.isLoading = false
 			
 			if let error = error {
-				self.coordinator.presentError(error)
+				self.coordinator.presentError(error, "Map failed to download traffic data",
+											  [OKAction { self.coordinator.dismiss() },
+											   CancelAction()])
 			} else {
 				self.view?.mapModel = response
 			}
