@@ -8,32 +8,44 @@
 
 import Foundation
 
+// MARK: - Actions
+
 public protocol AnyAction {
 	var title: String { get }
 	var callback: () -> Void { get }
 }
 
+public protocol AnyCancellableAction: AnyAction {}
+
 public struct OKAction: AnyAction {
-	public let title: String = "OK"
-	public let callback: () -> Void
+	public var title: String = "OK".localized()
+	public var callback: () -> Void
 	
-	public init(_ callback: @escaping () -> Void = { }) {
+	public init(_ callback: @escaping () -> Void = {}) {
 		self.callback = callback
 	}
 }
 
-public protocol AnyCancellableAction: AnyAction { }
+public struct CancelAction: AnyCancellableAction {
+	public var title: String = "Cancel".localized()
+	public var callback: () -> Void
+	
+	public init(_ callback: @escaping () -> Void = {}) {
+		self.callback = callback
+	}
+}
+
+// MARK: - Popup
 
 public protocol AnyPopupCoordinator {
 	func presentPopup(_ popup: Popup)
 }
 
 extension AnyPopupCoordinator {
-	public func presentError(_ error: Error?, _ message: String = "") {
-		switch error {
-			default:
-				presentPopup(.error(error, message, actions:[OKAction()]))
-		}
+	public func presentError(_ anyError: Error?, _ message: String = "",
+							 _ actions: [AnyAction] = [OKAction()]) {
+		guard let error = anyError else { return }
+		presentPopup(.error(error, message, actions))
 	}
 }
 
@@ -44,9 +56,10 @@ public struct Popup {
 }
 
 extension Popup {
-	static func error(_ anyError: Error?, _ message: String, actions: [AnyAction]) -> Popup {
+	static func error(_ error: Error?, _ message: String,
+					  _ actions: [AnyAction]) -> Popup {
 		Popup(title: "Error".localized(),
-			  message: anyError?.localizedDescription ?? message,
+			  message: message.isEmpty ? error?.localizedDescription ?? message : message,
 			  actions: actions)
 	}
 }

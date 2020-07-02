@@ -12,18 +12,20 @@ final class PinDetailsCoordinator: AnyDetailsCoordinator {
 	private let navigationController: UINavigationController
 	private let camera: CameraResponse
 	
-	var api: AnyAPI { API(apiHost: Constants.baseURL, session: URLSession.shared) }
+	var api: AnyAPI
 	
-	init(navigationController: UINavigationController, camera: CameraResponse) {
+	init(navigationController: UINavigationController,
+		 camera: CameraResponse, api: AnyAPI) {
 		self.navigationController = navigationController
 		self.camera = camera
+		self.api = api
 	}
 	
 	func start() {
 		let pinDetailsController = PinDetailsViewController<PinDetailsPresenter<PinDetailsCoordinator>>()
-		pinDetailsController.presenter = PinDetailsPresenter(coordinator: self, imageURL: camera.image)
-		pinDetailsController.navigationItem.title = "Image #%@".localizedFormat(camera.camera_id)
-		
+		pinDetailsController.presenter = PinDetailsPresenter(coordinator: self,
+															 imageURL: camera.image)
+		pinDetailsController.navigationItem.title = "Image #%@".localizedFormat(camera.camera_id)		
 		navigationController.pushViewController(pinDetailsController, animated: true)
 	}
 	

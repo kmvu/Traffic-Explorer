@@ -18,14 +18,14 @@ public extension AnyAPI {
 				debugPrint("Error: Invalid URL path")
 				return
 			}
-		
-		session.dataTask(with: request.url!) { data, response, error in
+
+		session.dataTask(with: request) { data, response, error in
 			DispatchQueue.main.async {
 				if error != nil {
-					completion(nil, .unkown)
+					completion(nil, .unknown)
 				} else if let data = data,
 					let response = response as? HTTPURLResponse, response.isValidStatusCode {
-					
+
 					do {
 						let trafficResponse = try JSONDecoder().decode(TrafficResponse.self, from: data)
 						completion(trafficResponse, nil)
@@ -37,7 +37,7 @@ public extension AnyAPI {
 			}
 		}.resume()
 	}
-	
+
 	func downloadImage(_ url: String, completion: @escaping (Data?, Error?) -> Void) {
 		session.dataTask(with: URL(string: url)!) { data, response, error in
 			DispatchQueue.main.async {
@@ -48,24 +48,4 @@ public extension AnyAPI {
 			}
 		}.resume()
 	}
-}
-
-// MARK: - Helpers
-
-typealias Parameter = (name: String, value: String)
-
-extension URLComponents {
-    func request(method: Constants.HTTPMethod,
-                 params: [Parameter] = []) -> URLRequest? {
-        url.map {
-            var request = URLRequest(url: $0)
-            request.httpMethod = method.rawValue
-            
-            return request
-        }
-    }
-}
-
-private extension String {
-	var url: URL? { URL(string: self, relativeTo: Constants.baseURL) }
 }

@@ -21,7 +21,6 @@ final class PinDetailsViewController<Presenter: AnyDetailsPresenter>: UIViewCont
 		view.hidesWhenStopped = true
 		view.style = .large
 		view.center = self.view.center
-		view.center.y -= 44.0 // Offset top navigation bar
 		return view
 	}()
 	

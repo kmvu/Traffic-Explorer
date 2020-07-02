@@ -12,7 +12,7 @@ public protocol AnyHomeCoordinator {
 	func navigateToTrafficMap()
 }
 
-public protocol AnyHomeView {
+public protocol AnyHomeView: AnyObject {
 	var isNavigatingToMap: Bool { get set }
 }
 
@@ -24,14 +24,14 @@ public protocol AnyHomePresenter {
 }
 
 public class HomePresenter<Coordinator: AnyHomeCoordinator>: AnyHomePresenter {
-	private var view: AnyHomeView?
 	private let coordinator: Coordinator
+	private weak var view: AnyHomeView?
 	
-	public init(coordinator: Coordinator) {
+	init(coordinator: Coordinator) {
 		self.coordinator = coordinator
 	}
 	
-	public func attach<View>(view: View) where View : AnyHomeView {
+	public func attach<View: AnyHomeView>(view: View) {
 		self.view = view
 	}
 	

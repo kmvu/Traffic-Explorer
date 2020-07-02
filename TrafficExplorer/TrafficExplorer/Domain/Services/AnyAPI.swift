@@ -14,13 +14,28 @@ import Combine
 public protocol AnyAPI {
 	var apiHost: URL { get }
 	var session: URLSession { get }
-	
+
 	func getURLComponents(path: String) -> URLComponents?
 }
 
-public protocol AnyError: Error {}
-
-public enum APIError: AnyError {
+public enum APIError: Error {
 	case apiError(code: Int, message: String)
-	case unkown
+	case unknown
+}
+
+// MARK: - Helpers
+
+typealias Parameter = (name: String, value: String)
+
+extension URLComponents {
+	func request(method: Constants.HTTPMethod,
+				 parameters: [Parameter] = []) -> URLRequest? {
+		url.map {
+			var request = URLRequest(url: $0,
+									 cachePolicy: .useProtocolCachePolicy,
+									 timeoutInterval: 60)
+			request.httpMethod = method.rawValue
+			return request
+		}
+	}
 }

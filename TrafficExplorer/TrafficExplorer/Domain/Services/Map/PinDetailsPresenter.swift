@@ -13,7 +13,7 @@ protocol AnyDetailsView: AnyObject {
 	var model: Any? { get set }
 }
 
-public protocol AnyDetailsCoordinator: AnyAPICoodinator {}
+public protocol AnyDetailsCoordinator: AnyAPICoodinator, AnyPopupCoordinator {}
 
 protocol AnyDetailsPresenter {
 	func attach<View: AnyDetailsView>(view: View)
@@ -23,7 +23,7 @@ protocol AnyDetailsPresenter {
 }
 
 class PinDetailsPresenter<Coordinator: AnyDetailsCoordinator>: AnyDetailsPresenter {
-	let coordinator: Coordinator
+	private let coordinator: Coordinator
 	private weak var view: AnyDetailsView?
 	
 	private let imageURL: String
@@ -35,12 +35,11 @@ class PinDetailsPresenter<Coordinator: AnyDetailsCoordinator>: AnyDetailsPresent
 	
 	func attach<View: AnyDetailsView>(view: View) {
 		self.view = view
-		
 		retrieveData(imageURL)
 	}
 	
 	func detach() {
-		view = nil
+		self.view = nil
 	}
 	
 	func retrieveData(_ url: String) {
@@ -48,8 +47,11 @@ class PinDetailsPresenter<Coordinator: AnyDetailsCoordinator>: AnyDetailsPresent
 		
 		coordinator.api.downloadImage(url) { [weak self] data, error in
 			guard let self = self else { return }
-			guard error == nil else { return }
 			
+			guard error == nil else {
+				self.coordinator.presentError(error)
+				return
+			}
 			self.view?.isLoading = false
 			self.view?.model = data
 		}
